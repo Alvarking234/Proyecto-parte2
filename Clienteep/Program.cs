@@ -1,3 +1,4 @@
+
 ﻿public class Automovil : Vehiculo
 {
     public Automovil(int codigo, string placa, string marca,
@@ -15,6 +16,7 @@
     public override void MostrarInformacion()
     {
         Console.WriteLine("Tipo: Automóvil");
-        base.MostrarInformacion();
+        base.MostrarInformacion()
+
     }
 }
