@@ -1,73 +1,19 @@
-﻿using System;
-
-public class Cliente
+﻿public class Bicicleta : Vehiculo
 {
-    private string codigo;
-    private string nombre;
-    private string telefono;
-    private string correo;
-    private string direccion;
-    private int cantidadSolicitudes;
-
-    public string Codigo
+    public Bicicleta(int codigo, string marca, string modelo,
+                     double capacidad, double costoOperativo)
+        : base(codigo, "", marca, modelo, capacidad, costoOperativo)
     {
-        get { return codigo; }
-        set { codigo = value; }
     }
 
-    public string Nombre
+    public override bool PuedeTransportar(double peso)
     {
-        get { return nombre; }
-        set { nombre = value; }
+        return peso <= Capacidad;
     }
 
-    public string Telefono
+    public override void MostrarInformacion()
     {
-        get { return telefono; }
-        set { telefono = value; }
-    }
-
-    public string Correo
-    {
-        get { return correo; }
-        set { correo = value; }
-    }
-
-    public string Direccion
-    {
-        get { return direccion; }
-        set { direccion = value; }
-    }
-
-    public int CantidadSolicitudes
-    {
-        get { return cantidadSolicitudes; }
-        set { cantidadSolicitudes = value; }
-    }
-
-    public Cliente(string codigo, string nombre, string telefono,
-                   string correo, string direccion)
-    {
-        Codigo = codigo;
-        Nombre = nombre;
-        Telefono = telefono;
-        Correo = correo;
-        Direccion = direccion;
-        CantidadSolicitudes = 0;
-    }
-
-    public void AumentarSolicitudes()
-    {
-        CantidadSolicitudes++;
-    }
-
-    public void MostrarInformacion()
-    {
-        Console.WriteLine("Codigo: " + Codigo);
-        Console.WriteLine("Nombre: " + Nombre);
-        Console.WriteLine("Telefono: " + Telefono);
-        Console.WriteLine("Correo: " + Correo);
-        Console.WriteLine("Direccion: " + Direccion);
-        Console.WriteLine("Solicitudes realizadas: " + CantidadSolicitudes);
+        Console.WriteLine("Tipo: Bicicleta");
+        base.MostrarInformacion();
     }
 }
