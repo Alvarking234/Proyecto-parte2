@@ -1,73 +1,86 @@
-﻿using System;
-
-public class Cliente
+public class Vehiculo
 {
-    private string codigo;
-    private string nombre;
-    private string telefono;
-    private string correo;
-    private string direccion;
-    private int cantidadSolicitudes;
+    private int codigo;
+    private string placa;
+    private string marca;
+    private string modelo;
+    private double capacidad;
+    private string estado;
+    private double costoOperativo;
 
-    public string Codigo
+    public int Codigo
     {
         get { return codigo; }
         set { codigo = value; }
     }
 
-    public string Nombre
+    public string Placa
     {
-        get { return nombre; }
-        set { nombre = value; }
+        get { return placa; }
+        set { placa = value; }
     }
 
-    public string Telefono
+    public string Marca
     {
-        get { return telefono; }
-        set { telefono = value; }
+        get { return marca; }
+        set { marca = value; }
     }
 
-    public string Correo
+    public string Modelo
     {
-        get { return correo; }
-        set { correo = value; }
+        get { return modelo; }
+        set { modelo = value; }
     }
 
-    public string Direccion
+    public double Capacidad
     {
-        get { return direccion; }
-        set { direccion = value; }
+        get { return capacidad; }
+        set { capacidad = value; }
     }
 
-    public int CantidadSolicitudes
+    public string Estado
     {
-        get { return cantidadSolicitudes; }
-        set { cantidadSolicitudes = value; }
+        get { return estado; }
+        set { estado = value; }
     }
 
-    public Cliente(string codigo, string nombre, string telefono,
-                   string correo, string direccion)
+    public double CostoOperativo
     {
-        Codigo = codigo;
-        Nombre = nombre;
-        Telefono = telefono;
-        Correo = correo;
-        Direccion = direccion;
-        CantidadSolicitudes = 0;
+        get { return costoOperativo; }
+        set { costoOperativo = value; }
     }
 
-    public void AumentarSolicitudes()
+    public Vehiculo()
     {
-        CantidadSolicitudes++;
+        estado = "Disponible";
     }
 
-    public void MostrarInformacion()
+    public Vehiculo(int codigo, string placa, string marca,
+                    string modelo, double capacidad,
+                    double costoOperativo)
     {
-        Console.WriteLine("Codigo: " + Codigo);
-        Console.WriteLine("Nombre: " + Nombre);
-        Console.WriteLine("Telefono: " + Telefono);
-        Console.WriteLine("Correo: " + Correo);
-        Console.WriteLine("Direccion: " + Direccion);
-        Console.WriteLine("Solicitudes realizadas: " + CantidadSolicitudes);
+        this.codigo = codigo;
+        this.placa = placa;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.capacidad = capacidad;
+        this.costoOperativo = costoOperativo;
+        estado = "Disponible";
+    }
+
+    public virtual bool PuedeTransportar(double peso)
+    {
+        return peso <= capacidad;
+    }
+
+    public virtual void MostrarInformacion()
+    {
+        Console.WriteLine("Código: " + Codigo);
+        Console.WriteLine("Placa: " + Placa);
+        Console.WriteLine("Marca: " + Marca);
+        Console.WriteLine("Modelo: " + Modelo);
+        Console.WriteLine("Capacidad: " + Capacidad + " kg");
+        Console.WriteLine("Estado: " + Estado);
+        Console.WriteLine("Costo operativo: Q" + CostoOperativo);
     }
 }
