@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Clienteep": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
