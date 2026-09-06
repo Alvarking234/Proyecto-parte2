@@ -1,3 +1,4 @@
+
 public class Vehiculo
 {
     private int codigo;
@@ -7,6 +8,17 @@ public class Vehiculo
     private double capacidad;
     private string estado;
     private double costoOperativo;
+
+﻿public class Repartidor
+{
+    private int codigo;
+    private string nombre;
+    private string telefono;
+    private string licencia;
+    private string estado;
+    private int entregasRealizadas;
+    private double calificacio
+      
 
     public int Codigo
     {
@@ -38,11 +50,20 @@ public class Vehiculo
         set { capacidad = value; }
     }
 
+
+    public string Licencia
+    {
+        get { return licencia; }
+        set { licencia = value; }
+    }
+
+
     public string Estado
     {
         get { return estado; }
         set { estado = value; }
     }
+
 
     public double CostoOperativo
     {
@@ -71,16 +92,56 @@ public class Vehiculo
     public virtual bool PuedeTransportar(double peso)
     {
         return peso <= capacidad;
+
+    public int EntregasRealizadas
+    {
+        get { return entregasRealizadas; }
+        set { entregasRealizadas = value; }
+    }
+
+    public double Calificacion
+    {
+        get { return calificacion; }
+        set { calificacion = value; }
+    }
+
+    public Repartidor()
+    {
+        estado = "Disponible";
+        entregasRealizadas = 0;
+        calificacion = 0;
+    }
+
+    public Repartidor(int codigo, string nombre, string telefono,
+                      string licencia)
+    {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.licencia= licencia;
+        estado = "Disponible";
+        entregasRealizadas = 0;
+        calificacion = 0;
+
     }
 
     public virtual void MostrarInformacion()
     {
         Console.WriteLine("Código: " + Codigo);
+
         Console.WriteLine("Placa: " + Placa);
         Console.WriteLine("Marca: " + Marca);
         Console.WriteLine("Modelo: " + Modelo);
         Console.WriteLine("Capacidad: " + Capacidad + " kg");
         Console.WriteLine("Estado: " + Estado);
         Console.WriteLine("Costo operativo: Q" + CostoOperativo);
+
+        Console.WriteLine("Nombre: " + Nombre);
+        Console.WriteLine("Teléfono: " + Telefono);
+        Console.WriteLine("Licencia: " + Licencia);
+        Console.WriteLine("Estado: " + Estado);
+        Console.WriteLine("Entregas realizadas: " + EntregasRealizadas);
+        Console.WriteLine("Calificación: " + Calificacion);
+
     }
 }
